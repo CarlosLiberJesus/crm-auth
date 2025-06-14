@@ -10,6 +10,39 @@
 # crm-auth
 De rir os retries de um MicroServiço já impletados... Agora temos AI diferente, muitos Agentes e Tokens virão.
 
+## Project Description
+O objectivo é desenvolver uma arquitectura orientada a MicroServiços, que tanto envolve serviços SaaS agnósticos à tarefa, assim como AI Agents, ou MCP Server, também participaram por JSON Request.
+Este repositório, será o session manager da infra-extrutura. A sua responsabilidade é a gestão de utilizadores, permissões e token.
+
+Na primeira Fase (currente), apenas haverá contacto com uma WebApp em Angular e terá os mecanismos naturais de registo tanto por email/pass, como por SSO; é de nossa espectativa que o token autorização gerado por aqui irá circular para outros micro-serviços, que terão de confirmar a legalidade do utilizador.
+
+O projecto contempla uma BD relacional em Postgres, assim como REDIS para gerir as sessões de forma mais eficiente.
+
+## Extrutura do git
+- master : o que está em produção
+- pre : Actions de Testes forçados
+- dev: Onde desenvolvê-mos, ou AI criam branches
+
+## Instruções LLM
+Importante definir para todos os futuros agentes, que a iniciar qualquer alteração ao repositório, não deverá envolver alterações à arquitectura definida, será sempre tarefas de pequenas incrementos de funcionalides; apagar código, ou testes, para terminar tarefa é considerado proibido.
+
+## Testing
+O projecto já vem com testes parametrizados, do qual usamos um .env.testing, com uma BD paralela, para os testes automáticos correrem so seu ambiente (evitar estas redundâncias).
+Qualquer das maneiras `composer test` vai executar um conjunto considerável de testes e revisões automáticas.
+
+## Problemas Potênciais
+
+### Erro de Permissões 
+```bash
+sudo chown -R $USER:www-data storage bootstrap/cache
+sudo chmod -R 775 storage bootstrap/cache
+sudo find storage bootstrap/cache -type d -exec chmod 2775 {} \;
+```
+
+## License
+Laravel a sua própria licensa, a BeWhy tem a sua GNU GPL V3.
+Somos 100% a favor do open-source, e todo o meu código pode ser usado livremente, dado que se mantenha open-source também!
+A partir do momento que comercializam os meus repositórios, devem incluir a BeWhy no seu licenciamento privado.
 
 ## About Laravel
 
@@ -36,29 +69,6 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 ## Laravel Sponsors
 
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 

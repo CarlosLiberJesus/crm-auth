@@ -16,7 +16,6 @@ public_html/storage
 public_html/hot
 
 storage/*.key
-.env
 Homestead.yaml
 Homestead.json
 /.vagrant
@@ -24,14 +23,14 @@ Homestead.json
 
 /public/build
 /storage/pail
-.env.backup
+.env
+.env.testing
 .env.production
 .phpactor.json
 auth.json
 
 *.log
 .DS_Store
-.env
 /.fleet
 /.idea
 /.nova
