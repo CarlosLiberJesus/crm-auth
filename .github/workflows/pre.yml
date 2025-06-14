@@ -56,6 +56,12 @@ jobs:
       - name: Install PHP dependencies
         run: composer install --no-interaction --no-progress --ansi
 
+      - name: Install Aspell
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y aspell aspell-en
+
       - name: Prepare Laravel
         run: |
           cp .env.example .env
